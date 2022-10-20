@@ -23,10 +23,9 @@ export default function Challenge() {
   const [tweets, setTweets] = useState<Tweet[]>([]);
   const [currentTheme, setCurrentTheme] =
     useState<AvailableThemes>(defaultTheme);
-  //
+  //get items from localStorage
   useEffect(() => {
     const retrievedObject: any = localStorage.getItem("tweets");
-    console.log("You are on the browser", JSON.parse(retrievedObject));
     if (retrievedObject) {
       setTweets(JSON.parse(retrievedObject));
     }
@@ -69,12 +68,10 @@ export default function Challenge() {
     localStorage.setItem("tweets", JSON.stringify(tweets));
     e.preventDefault();
     const time = new Date();
-    console.log(time.getTime());
     const tweet: Tweet = {
       content: input,
       time: time.getTime(),
     };
-    console.log(tweet);
     if (input !== "") {
       setInput("");
       setTweets([...tweets, tweet]);
