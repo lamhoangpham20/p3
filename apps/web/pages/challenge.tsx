@@ -47,7 +47,7 @@ export default function Challenge() {
       }
 
       return (
-        <Card mb={4} ml={4} p={3}>
+        <Card mb={4} ml={4} p={3} key={i.time}>
           <Flex sx={{ alignItems: "center", justifyContent: "space-between" }}>
             <Heading as="h3">Name</Heading>
             <Box as="time" color="lightgray">
